@@ -34,7 +34,7 @@ function showTopicButtons(topics) {
                 // Looping over every result item
                 results.forEach(element => {
                     $("#gifs-display").append(`
-                    <div class="thumbnail gif-thumbnail">
+                    <div class="thumbnail gif-thumbnail animated zoomIn">
                         <img src="${element.images.fixed_height_downsampled.url}" alt="...">
                         <div class="caption">
                             <h3>Rating: ${element.rating}</h3>
