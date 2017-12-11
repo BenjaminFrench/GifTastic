@@ -1,0 +1,7 @@
+#buttons-display button {
+    margin: 10px;
+}
+
+.gif-thumbnail {
+    display: inline-block;
+}
