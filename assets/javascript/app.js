@@ -23,7 +23,7 @@ function showTopicButtons(topics) {
         $(".tag-btn").removeClass("btn-success").addClass("btn-default");
         $(this).removeClass("btn-default").addClass("btn-success");
 
-        queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tagText + "&limit=10" + "&rating=r" + "&api_key=" + apiKey;
+        queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tagText + "&limit=10" + "&api_key=" + apiKey;
 
         // call api and display gifs
         $.ajax({
