@@ -1,14 +1,19 @@
-topics = ["Steve Brule", "Tim Heidecker", "John McClane", "Steven Seagal"]
+topics = ["Tim Heidecker", "Eric Wareheim", "Steve Brule", "Tairy Green", "Spagett"]
 apiKey = "qYmmDFMw3mOgVlSGk0nk2SgV8aFWyAna";
 
 // Takes an array of strings and display them as buttons
 function showTopicButtons(topics) {
+    var selectedButton = $(".btn-success").attr("data-tag");
     // clear buttons-display div
     $("#buttons-display").empty();
     for (let index = 0; index < topics.length; index++) {
-        $("#buttons-display").append(`<button class="tag-btn button btn btn-default" data-tag="${topics[index]}">${topics[index]}</button>`);
         
-        
+        if (topics[index] === selectedButton) {
+            $("#buttons-display").append(`<button class="tag-btn button btn btn-success" data-tag="${topics[index]}">${topics[index]}</button>`);
+        }
+        else {
+            $("#buttons-display").append(`<button class="tag-btn button btn btn-default" data-tag="${topics[index]}">${topics[index]}</button>`);
+        }
         // const element = topics[index];
         
     }
@@ -18,7 +23,7 @@ function showTopicButtons(topics) {
         $(".tag-btn").removeClass("btn-success").addClass("btn-default");
         $(this).removeClass("btn-default").addClass("btn-success");
 
-        queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tagText + "&limit=10" + "&api_key=" + apiKey;
+        queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tagText + "&limit=10" + "&rating=r" + "&api_key=" + apiKey;
 
         // call api and display gifs
         $.ajax({
@@ -30,17 +35,37 @@ function showTopicButtons(topics) {
                 // Storing an array of results in the results variable
                 var results = response.data;
                 console.log(response);
+
                 $("#gifs-display").empty();
                 // Looping over every result item
                 results.forEach(element => {
+                    // still image url
+                    let stillImgSrc = element.images.fixed_height_still.url;
+                    // animated gif url
+                    let animatedImgSrc = element.images.fixed_height.url;
+
                     $("#gifs-display").append(`
                     <div class="thumbnail gif-thumbnail animated zoomIn">
-                        <img src="${element.images.fixed_height_downsampled.url}" alt="...">
+                        <img class="gif-img" data-animated-src="${animatedImgSrc}" data-still-src="${stillImgSrc}" src="${stillImgSrc}" alt="...">
                         <div class="caption">
                             <h3>Rating: ${element.rating}</h3>
                         </div>
                     </div>`);
+                    
                 });
+                // add click handler for gifs
+                $(".gif-img").on("click", function() {
+                    let stillImgSrc = $(this).attr("data-still-src");
+                    let animatedImgSrc = $(this).attr("data-animated-src");
+                    let currentSrc = $(this).attr("src");
+
+                    if (currentSrc === stillImgSrc) {
+                        $(this).attr("src", animatedImgSrc);
+                    }
+                    else {
+                        $(this).attr("src", stillImgSrc);
+                    }
+                })
             });
     });
 }
