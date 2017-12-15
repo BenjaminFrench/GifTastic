@@ -1,43 +1,58 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-S7YMK1xjUjSpEnF4P8hPUcgjXYLZKK3fQW1j5ObLSl787II9p8RO9XUGehRmKsxd" crossorigin="anonymous">
     <!-- <link rel="stylesheet" type="text/css" href="./assets/css/reset.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Racing+Sans+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <title>Giftastic!</title>
 </head>
+
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div id="buttons-display">
-                    
+                <div class="jumbotron animated slideInDown">
+                    <h1 id="main-title">GifTastic!</h1>
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
-            <div class="col-md-4 col-md-push-8">
-                <form id="new-tag-form">
-                    <div class="form-group">
-                        <label for="new-tag-input">Add a new tag:</label>
-                        <input type="text" class="form-control" name="addtag" id="new-tag-input">
-                    </div>
-                    <button type="submit" id="add-tag-btn" class="btn btn-default">Add</button>
-                </form>
-            </div>
-            <div class="col-md-8 col-md-pull-4">
-                <div id="gifs-display">
-                    
+            <div class="col-md-8">
+                <div id="buttons-display" class="animated fadeIn">
+
                 </div>
             </div>
-            
+
+            <div class="col-md-4">
+                <form id="new-tag-form" class="form-inline">
+                    <div class="form-group">
+                        <!-- <label for="new-tag-input">Add a new tag:</label> -->
+                        <input type="text" class="form-control" name="addtag" id="new-tag-input" placeholder="Add a new tag">
+                        <button type="submit" id="add-tag-btn" class="btn btn-default">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="gifs-display">
+
+                </div>
+            </div>
         </div>
     </div>
     <script src="./assets/javascript/app.js"></script>
 </body>
+
 </html>

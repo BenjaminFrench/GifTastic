@@ -1,7 +1,18 @@
 #buttons-display button {
-    margin: 10px;
+    margin: 0px 5px 5px 0px;
 }
 
 .gif-thumbnail {
     display: inline-block;
+}
+
+.caption h3 {
+    font-family: 'Barlow', sans-serif;
+}
+
+#main-title {
+    font-family: 'Racing Sans One', cursive;
+}
+
+#new-tag-form {
 }
